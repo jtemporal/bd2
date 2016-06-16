@@ -8,10 +8,9 @@ body {
 
 div {
   margin: 50px;
-  text-align: center;
 }
 
-h1, h2, h3 { text-align: center; }
+.principal div, h1, h2, h3 { text-align: center; }
 
 input { text-align: center; }
 
@@ -27,3 +26,5 @@ input { text-align: center; }
 }
 
 .btn:hover { box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19) }
+
+.cadastro { text-align: left; }
