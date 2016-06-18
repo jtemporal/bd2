@@ -24,7 +24,15 @@
 
     function insert(){
         global $sql_func, $conex1;
-        $insertion1 = pg_query($conex1, $sql_func) or die ("Falha na inserção dos dados!<br>".pg_last_error());
+        $insertion = pg_query($conex1, $sql_func) or die ("Falha na inserção dos dados!<br>".pg_last_error());
+        if ($insertion){
+            echo "Cadastro do novo Funcionário realizado com sucesso";
+        } else {
+            echo "Falha ao cadastrar novo Funcionário, entre em contato com o administrador";
+        }
+        insert($conex1)
     }
+    pg_close($conex1);
+
 
 ?>
