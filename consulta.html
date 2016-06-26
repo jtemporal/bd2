@@ -7,7 +7,45 @@
     </head>
     <body>
         <div>
-            <h1>Hello, world!</h1>
+            <h1>Consulta ao banco de dados ClineTest:</h1>
+        </div>
+        <div class="register">
+            <h2>faça suas consultas aqui</h2>
+            <form  method="post" action="consulta.php">
+                <div class="div-register">
+                    <br><br>
+                    <h3>Mostra atendimentos ocorridos em uma determinada Data: </h3>
+                    <p>Insira a data de atendimento:<br>
+                        <input name="dta_atendimento" maxlength="30" type="text" placeholder="AAAA-MM-DD">
+                    </p>
+                   // colocar caixa de resultado aqui
+                   
+                </div>
+                <div class="div-register">
+                    <br><br>
+                    <h3>Consulta o preço de um determinado pacote</h3>
+                    <p> Insira o número do Pacote:<br>
+                        <input name="rua" maxlength="30" type="text" placeholder="">
+                    </p>
+                    // colocar caixa de resultado aqui
+                   
+                </div>
+                <div class="div-register">
+                    <br><br>
+                    <h3> Mostra pacotes entre dois valores </h3>
+                    <p>Numero de matrícula:<br>
+                        <input name="nro_mat" maxlength="30" type="text" placeholder="">
+                    </p>
+                    // colocar caixa de resultado aqui
+                    
+                    <p>
+                        <a href="principal.html">
+                            <button type="button" class="btn-register">Voltar</button>
+                        </a>
+                        <input value="Enviar" name="submit" type="submit" class="btn-register">
+                    </p>
+                </div>
+            </form>
         </div>
     </body>
 </html>
