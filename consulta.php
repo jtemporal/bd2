@@ -3,10 +3,11 @@
     $dta_atendimento = $_POST['dta_atendimento'];
     $valor1 = $_POST['valor1'];
     $valor2 = $_POST['valor2'];
-    $valor3 = $_POST['valor3'];
+    $nroPacote = $_POST['nroPacote'];
     
     // Testar conexão
-    $con = pg_connecti("host=dcmshare.ffclrp.usp.br port=5432 dbname=secret user=ibm15g9 password=2130") or die ("Falha na conexão!".pg_last_error());
+    $con = pg_connecti("host=dcmshare.ffclrp.usp.br port=5432 dbname=secret user=ibm15g9 password=2130") 
+    or die ("Falha na conexão!".pg_last_error());
    
    
    // Mostra atendimento em determinada data
@@ -24,7 +25,7 @@
     
     // Mostra o preço de um pacote.
     pg_query($con, "BEGIN;");
-    pg_query($con, "SELECT * FROM mostra_valor_pacote(data_atendimento);");
+    pg_query($con, "SELECT * FROM mostra_valor_pacote(nroPacote);");
 
     $result = pg_query($con, "FETCH ALL FROM a;");
 
@@ -36,7 +37,7 @@
     
     // Mostra pacotes entre dois valores.
     pg_query($con, "BEGIN;");
-    pg_query($con, "SELECT * FROM mostra_pacotes_entrevalores(valor1, valor2);");
+    pg_query($con, "SELECT * FROM mostra_pacotes_entre_valores(valor1, valor2);");
 
     $result3 = pg_query($con, "FETCH ALL FROM a;");
 
@@ -48,6 +49,5 @@
     
     }
     pg_close($con);
-
 
 ?>
