@@ -6,7 +6,7 @@
     $nroPacote = $_POST['nroPacote'];
     
     // Testar conexão
-    $con = pg_connecti("host=dcmshare.ffclrp.usp.br port=5432 dbname=secret user=ibm15g9 password=2130") 
+    $con = pg_connecti("host=HOST port=PORTA dbname=SECRET user=USER password=PASSWORD") 
     or die ("Falha na conexão!".pg_last_error());
    
    
