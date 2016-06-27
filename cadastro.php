@@ -18,7 +18,7 @@
     $rg = $_POST['rg'];
     
     // testar campos obrigatorios
-    $conex1 = pg_connecti("host=dcmshare.ffclrp.usp.br port=5432 dbname=secret user=ibm15g9 password=2130") or die ("Falha na conexão!".pg_last_error());
+    $conex1 = pg_connecti("host=HOST port=PORTA dbname=BANCO user=SECRET password=PASSWORD") or die ("Falha na conexão!".pg_last_error());
     // escrever os valores na ordem dentro do parentesis
     $sql_func = "INSERT INTO FUNCIONARIO VALUES()";
 
