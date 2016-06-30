@@ -20,26 +20,67 @@
 					password=2130") 
 			    or die ("Falha na conexão!".pg_last_error());
 			    
-				// Testar se o $_POST para data de atendimento é vazio
-				if(! (empty($_POST['dta_atendimento']) ) )
-				{
-					$dta_atendimento = $_POST['dta_atendimento'];
-					//Seleciona os atendimentos com data igual a recebida
-					$result1 = pg_exec($con, "SELECT * FROM atendimento WHERE data='$dta_atendimento'");
-					$tot_tuplas = pg_numrows($result1);
-					echo "Para a data $dta_atendimento tivemos os seguintes atentimentos<br><br>";
-					//mostra todos os atendimentos da data recebida
-					for($tupla=0;$tupla<$tot_tuplas;$tupla++){
-						$atendimento = pg_result($result1,$tupla,0);
-						$horario = pg_result($result1,$tupla,1);
-						$cliente = pg_result($result1,$tupla,5);
-						printf("
-							ID do Cliente: $cliente<br>
-							ID do Atendimento: $atendimento<br>
-							Horario: $horario<br><br>
-						");
-					}
-				}
+				// Testar se o post para data de atendimento e para a sec nao estao
+		    	if(!(empty($_POST['dta_atendimento'])) or !(empty($_POST['cod_sec'])) ){
+			
+					// consulta apenas se houver data
+					if (!(empty($_POST['dta_atendimento'])) and (empty($_POST['cod_sec']))){
+						$dta_atendimento = $_POST['dta_atendimento'];
+						// Mostra atendimento em determinada data
+						$result1 = pg_exec($con, "SELECT * FROM atendimento WHERE data='$dta_atendimento'");
+						$tot_tuplas = pg_numrows($result1);
+						echo "Para a data $dta_atendimento tivemos os seguintes atentimentos<br><br>";
+						for($tupla=0;$tupla<$tot_tuplas;$tupla++){
+							$atendimento = pg_result($result1,$tupla,0);
+							$horario = pg_result($result1,$tupla,1);
+							$cliente = pg_result($result1,$tupla,5);
+							printf("
+								ID do Cliente: $cliente<br>
+								ID do Atendimento: $atendimento<br>
+								Horario: $horario<br><br>
+							  ");
+						} // for
+					} // if apenas atendimento por data
+
+					// consulta apenas se houver o cod da secretaria
+					if(!(empty($_POST['cod_sec'])) and (empty($_POST['dta_atendimento']))){
+						$cod_sec = $_POST['cod_sec'];
+						// Mostra atendimento em determinada data
+						$result3 = pg_exec($con, "SELECT * FROM atendimento WHERE cliente_secretaria_funcionario_cpf='$cod_sec'");	
+						$tot_tuplas = pg_numrows($result3);
+						echo "A secretaria de ID $cod_sec cadastrou os seguintes atendimentos<br><br>";
+						for($tupla=0;$tupla<$tot_tuplas;$tupla++){
+							$atendimento = pg_result($result3,$tupla,0);
+							$horario = pg_result($result3,$tupla,1);
+							$cliente = pg_result($result3,$tupla,5);
+							printf("
+								ID do Cliente: $cliente<br>
+								ID do Atendimento: $atendimento<br>
+								Horario: $horario<br><br>
+							");
+						} // for
+					} // if apenas sec
+				
+					// consulta casada secretaria e data do atendimento
+					else {
+						$cod_sec = $_POST['cod_sec'];
+						$dta_atendimento = $_POST['dta_atendimento'];
+						// Mostra atendimento em determinada data
+						$result4 = pg_exec($con, "SELECT * FROM atendimento WHERE cliente_secretaria_funcionario_cpf='$cod_sec' AND data='$dta_atendimento'");
+						$tot_tuplas = pg_numrows($result4);
+						echo "A secretaria de ID $cod_sec cadastrou os seguintes atendimentos na data $dta_atendimento<br><br>";
+						for($tupla=0;$tupla<$tot_tuplas;$tupla++){
+							$atendimento = pg_result($result4,$tupla,0);
+							$horario = pg_result($result4,$tupla,1);
+							$cliente = pg_result($result4,$tupla,5);
+							printf("
+								ID do Cliente: $cliente<br>
+								ID do Atendimento: $atendimento<br>
+								Horario: $horario<br><br>
+							  ");
+						} // for
+					} // else
+				} // if consulta casada atendimento	
 	
 				// Testar se o $_POST para numero de pacote é vazio
 				if(! (empty($_POST['nroPacote']) ) )
@@ -58,10 +99,8 @@
 						");
 					}
 				}
-	
 				//fecha conexão com o banco
 				pg_close($con);
-	
 			?>
 		</div>
 </html>
