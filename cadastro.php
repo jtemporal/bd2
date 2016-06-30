@@ -34,11 +34,11 @@
 		//print_r($_POST);
 	    
 		$conex1 = pg_connect("host = 143.107.137.62  
-					port = 5432  
-					dbname = clinestet_new  
-					user = ibm15g9  
-					password = 2130")
-			or die ("Falha na conexão!".pg_last_error()); 
+							port = 5432  
+							dbname = clinestet_new  
+							user = ibm15g9  
+							password = 2130")
+							or die ("Falha na conexão!".pg_last_error()); 
 
 		$result1 = pg_exec($conex1, "INSERT INTO funcionario
 						VALUES ('$cpf','$dta_nasc','$sexo','$nome','$nro_mat','$rg','$dta_admissao','$cargo','$rua','$bairro','$cep','$cidade','$estado','$fone','$cod_sec','$dta_demissao');");
