@@ -9,37 +9,40 @@
         <div>
             <h1>Consulta ao banco de dados ClineTest:</h1>
         </div>
-        <div class="register">
-            <h2>faça suas consultas aqui</h2>
+         <div class="register">
+            <h2>Faça suas consultas aqui</h2>
             <form  method="post" action="consulta.php">
                 <div class="div-register">
                     <br><br>
-                    <h3>Mostra atendimentos ocorridos em uma determinada Data: </h3>
+                    <h3>Mostra dados dos atendimentos: </h3>
+					<form action = "consulta.php" method = "POST">
                     <p>Insira a data de atendimento:<br>
-                        <input name="dta_atendimento" maxlength="30" type="text" placeholder="AAAA-MM-DD">
+                        <input type="text" name="dta_atendimento" size="30" placeholder="AAAA-MM-DD">
                     </p>
-                   // colocar caixa de resultado aqui
-                   
+                    <p>Insira código da secretária:<br>
+                        <input type="text" name="cod_sec" size="10">
+                    </p>
+
+					<input type="submit" value="Consultar" class="btn-register"></form>
                 </div>
                 <div class="div-register">
                     <br><br>
                     <h3>Consulta o preço de um determinado pacote</h3>
+					<form action = "consulta.php" method = "POST">
                     <p> Insira o número do Pacote:<br>
                         <input name="nroPacote" maxlength="30" type="text" placeholder="Número do pacote">
                     </p>
-                    // colocar caixa de resultado aqui
+					<input type="submit" value="Consultar" class="btn-register"></form>
                    
                 </div>
                 <div class="div-register">
                     <br><br>
                     <h3> Mostra pacotes entre dois valores </h3>
+					<form action = "consulta.php" method = "POST">
                     <p>Numero de matrícula:<br>
                         <input name="valor1" maxlength="30" type="text" placeholder=" valor menor">
                     </p>
-                    <p>Número de matrícula:<br>
-                        <input name="valor1" maxlength="30" type="text" placeholder=" valor maior">
-                    </p>
-                    // colocar caixa de resultado aqui
+					<input type="submit" value="Consultar" class="btn-register"></form>
                     
                     <p>
                         <a href="principal.html">
