@@ -4,36 +4,88 @@
         <meta charset="UTF-8">
         <title>Consulta ClinEstet</title>
         <link rel="stylesheet" href="style.css" type="text/css">
+        <style type="text/css">
+        <!--
+        .style1 { color: #606060; }
+        .style2 { color: #555555; }
+        .style3 {
+            border: none;
+            border-radius: 4px;
+            display: inline-block;
+            font-size: 12px;
+            padding: 8px 16px;
+            text-align: center;
+            background-color: #555555; }
+        .style4 {
+            border: none;
+            border-radius: 4px;
+            display: inline-block;
+            font-size: 12px;
+            padding: 8px 16px;
+            text-align: center;
+            background-color: #555555; }
+        .style5 {
+            border: none;
+            border-radius: 4px;
+            display: inline-block;
+            font-size: 12px;
+            padding: 8px 16px;
+            text-align: center;
+            background-color: #555555; }
+        -->
+    </style>
     </head>
     <body>
         <div>
-            <h1>Consulta ao banco de dados ClineTest:</h1>
+            <table width="147" border="0" align="center">
+                <tr>
+                    <td width="141"><span class="style1"><a href="principal.html"><img src="12 copy.jpg" alt="" width="140" height="111"></a></span></td>
+                </tr>
+            <table>
+            <h1 class="style1">Consulta ao banco de dados ClineTest:</h1>
         </div>
-        <div class="register">
-        <h2>Faça suas consultas aqui</h2>
-            <form  method="post" action="consulta.php">
-                <div class="div-register">
-                    <br><br>
-                    <h3>Mostra dados dos atendimentos: </h3>
-			<form action = "consulta.php" method = "POST">
-                    <p>Insira a data de atendimento:<br>
-                        <input type="text" name="dta_atendimento" size="30" placeholder="AAAA-MM-DD">
-                    </p>
-                    <p>Insira código da secretária:<br>
-                        <input type="text" name="cod_sec" size="10">
-                    </p>
-			<input type="submit" value="Consultar" class="btn-register"></form>
-                </div>
-                <div class="div-register">
-                    <br><br>
-                    <h3>Consulta o preço de um determinado pacote</h3>
-			<form action = "consulta.php" method = "POST">
-                    <p> Insira o número do Pacote:<br>
-                        <input name="nroPacote" maxlength="30" type="text" placeholder="Número do pacote">
-                    </p>
-					<input type="submit" value="Consultar" class="btn-register"></form>
-            </form>
-			</div>
+        <h2 class="style1">Faça suas consultas aqui</h2>
+        <div class="div-register">
+            <span class="style1"><br>
+            </span>
+            <table width="928" border="0">
+                <tr>
+                    <td width="180">
+                        <h3 class="style1">&nbsp;</h3>
+                    </td>
+                    <td width="298">
+                        <h3 class="style1">Mostra dados dos atendimentos: </h3>
+                        <form action = "consulta.php" method = "POST">
+                            <p class="style1">Insira a data de atendimento:<br>
+                                <input type="text" name="dta_atendimento" size="30" placeholder="AAAA-MM-DD">
+                            </p>
+                            <p><span class="style1">Insira código da secretária:</span><br>
+                                <input type="text" name="cod_sec" size="10">
+                            </p>
+                            <p>
+                                <input type="submit" value="Consultar" class="btn-register">
+                            </p>
+                        </form>
+                        <h3 class="style2">&nbsp;</h3>
+                    </td>
+                    <td width="436"><h3 class="style2">Consulta o preço de um determinado pacote</h3>
+                        <form action = "cons>ulta.php" method = "POST" class="style2">
+                            <p> Insira o número do Pacote:<br>
+                                <input name="nroPacote" maxlength="30" type="text" placeholder="Número do pacote">
+                            </p>
+                            <p>
+                                <input type="submit" value="Consultar" class="btn-register">
+                            </p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+            <span class="style1"><br>
+            </span>
+            <h3 class="style1">&nbsp;</h3>
         </div>
     </body>
 </html>
