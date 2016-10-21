@@ -2,7 +2,7 @@
 
 
 Segunda parte do projeto da disciplina de Banco de Dados 2 - 
-1º Semestre - 2016
+1º Semestre - 2016.
 
 # Grupo 6:
 
